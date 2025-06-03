@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danil\\source\\repos\\Diplom(F2)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{882A1C3E-7AC4-4C47-AAF8-FD12E14A199D}|Diplom(F2)\\Diplom(F2).csproj|c:\\users\\danil\\source\\repos\\diplom(f2)\\diplom(f2)\\adminpanel\\adminbasepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{882A1C3E-7AC4-4C47-AAF8-FD12E14A199D}|Diplom(F2)\\Diplom(F2).csproj|solutionrelative:diplom(f2)\\adminpanel\\adminbasepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{882A1C3E-7AC4-4C47-AAF8-FD12E14A199D}|Diplom(F2)\\Diplom(F2).csproj|c:\\users\\danil\\source\\repos\\diplom(f2)\\diplom(f2)\\adminpanel\\adminbasepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{882A1C3E-7AC4-4C47-AAF8-FD12E14A199D}|Diplom(F2)\\Diplom(F2).csproj|solutionrelative:diplom(f2)\\adminpanel\\adminbasepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminBasePage.xaml",
+              "DocumentMoniker": "C:\\Users\\danil\\source\\repos\\Diplom(F2)\\Diplom(F2)\\AdminPanel\\AdminBasePage.xaml",
+              "RelativeDocumentMoniker": "Diplom(F2)\\AdminPanel\\AdminBasePage.xaml",
+              "ToolTip": "C:\\Users\\danil\\source\\repos\\Diplom(F2)\\Diplom(F2)\\AdminPanel\\AdminBasePage.xaml",
+              "RelativeToolTip": "Diplom(F2)\\AdminPanel\\AdminBasePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T01:18:49.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminBasePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\danil\\source\\repos\\Diplom(F2)\\Diplom(F2)\\AdminPanel\\AdminBasePage.xaml.cs",
+              "RelativeDocumentMoniker": "Diplom(F2)\\AdminPanel\\AdminBasePage.xaml.cs",
+              "ToolTip": "C:\\Users\\danil\\source\\repos\\Diplom(F2)\\Diplom(F2)\\AdminPanel\\AdminBasePage.xaml.cs",
+              "RelativeToolTip": "Diplom(F2)\\AdminPanel\\AdminBasePage.xaml.cs",
+              "ViewState": "AgIAAN0BAAAAAAAAAAAmwPgBAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T19:15:47.439Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

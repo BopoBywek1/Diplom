@@ -1,0 +1,14 @@
+using (var db = new DiplomEntities())
+{
+    var users = db.User.ToList();
+
+    foreach (var user in users)
+    {
+        if (!string.IsNullOrWhiteSpace(user.Password) && user.Password.Length < 40) // чтобы не хешировать повторно
+        {
+            user.Password = PasswordHelper.ComputeSha256Hash(user.Password);
+        }
+    }
+
+    db.SaveChanges();
+}

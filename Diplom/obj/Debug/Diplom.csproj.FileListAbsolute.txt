@@ -1,0 +1,7 @@
+C:\Users\danil\source\repos\Diplom\obj\Debug\Diplom.csproj.AssemblyReference.cache
+C:\Users\danil\source\repos\Diplom\obj\Debug\Diplom.csproj.SuggestedBindingRedirects.cache
+C:\Users\danil\source\repos\Diplom\obj\Debug\MainWindow.g.cs
+C:\Users\danil\source\repos\Diplom\obj\Debug\App.g.cs
+C:\Users\danil\source\repos\Diplom\obj\Debug\Diplom_Content.g.cs
+C:\Users\danil\source\repos\Diplom\obj\Debug\Diplom_MarkupCompile.cache
+C:\Users\danil\source\repos\Diplom\obj\Debug\Diplom_MarkupCompile.lref

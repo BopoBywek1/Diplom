@@ -1,0 +1,47 @@
+ private async Task StartTelegramBot()
+ {
+    string token = "7506585343:AAHo_zsewG0zP95D-SujBdVWwlClJknX1Xk";
+    var bot = new TelegramBotClient(token);
+
+    // Использование старой формы using для CancellationTokenSource
+    CancellationTokenSource cts = new CancellationTokenSource();
+
+    var receiverOptions = new ReceiverOptions
+    {
+        AllowedUpdates = { } // получаем все обновления
+    };
+
+    // Старт приема сообщений
+    bot.StartReceiving(
+        HandleUpdateAsync,
+        HandleErrorAsync,
+        receiverOptions,
+        cancellationToken: cts.Token
+    );
+
+    var me = await bot.GetMeAsync();
+    Console.WriteLine($"Бот запущен: @{me.Username}");
+    
+    // Явное освобождение ресурсов CancellationTokenSource
+    cts.Dispose();
+ }
+
+static async Task HandleUpdateAsync(ITelegramBotClient bot, Update update, CancellationToken ct)
+{
+    // Заменим паттерн-матчинг на стандартные проверки
+    if (update.Message == null || update.Message.Text == null) return;
+
+
+    var chatId = update.Message.Chat.Id;
+
+    await bot.SendTextMessageAsync(
+        chatId,
+        $"Ваш ChatId: {chatId}\nВведите его в форму восстановления пароля."
+    );
+}
+
+static Task HandleErrorAsync(ITelegramBotClient bot, Exception exception, CancellationToken ct)
+{
+    Console.WriteLine($"Ошибка: {exception.Message}");
+    return Task.CompletedTask;
+}

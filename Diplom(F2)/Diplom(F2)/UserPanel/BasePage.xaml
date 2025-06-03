@@ -1,0 +1,69 @@
+﻿<Window x:Class="Diplom_F2_.UserPanel.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_F2_.UserPanel"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Верх -->
+            <RowDefinition Height="*"/>
+            <!-- Контент -->
+            <RowDefinition Height="Auto"/>
+            <!-- Низ -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <!-- Левая панель -->
+            <ColumnDefinition Width="*"/>
+            <!-- Контент -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Аватар и имя -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="10" >
+            <Image Source="/BaseDate/F2.png"
+                   Width="60" Height="60" Margin="0">
+                <Image.Clip>
+                    <EllipseGeometry Center="30,25" RadiusX="30" RadiusY="40"/>
+                </Image.Clip>
+            </Image>
+            <TextBlock x:Name="ViewNick" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap" Width="80"/>
+        </StackPanel>
+
+        <!-- Левая панель кнопок -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10,0">
+            <Button x:Name="MyTask" Content="Поручения" Height="35" Margin="0,20" Click="Button_Click_1"/>
+            <Button Content="История поручений" Height="35" Margin="0,20" Click="Button_Click_3"/>
+            <Button Content="Выход" Height="42" Click="Button_Click" VerticalAlignment="Bottom" Margin="0,120,0,0" />
+        </StackPanel>
+
+        <!-- Комбобоксы -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="10">
+            <TextBlock x:Name="TotalAmountTextBlock" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0,0,0,10" Width="350" Height="50"/>
+            <ComboBox x:Name="DepartmentComboBox" Width="100" Height="50" Margin="10,0,10,0"
+                      DisplayMemberPath="Name_departament"
+                      SelectedValuePath="departament_id"
+                      Visibility="Collapsed"
+                      SelectionChanged="DepartmentComboBox_SelectionChanged"/>
+            <ComboBox x:Name="StatusComboBox" Width="100" Height="50" Margin="10"
+                      DisplayMemberPath="Name_status"
+                      SelectedValuePath="Status_id"
+                      Visibility="Collapsed"
+                      SelectionChanged="StatusComboBox_SelectionChanged"/>
+        </StackPanel>
+
+        <!-- Текст и список -->
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal" Width="auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="auto" Width="auto">
+                <StackPanel x:Name="MessagesPanel"/>
+            </ScrollViewer>
+        </StackPanel>
+       
+    </Grid>
+</Window>

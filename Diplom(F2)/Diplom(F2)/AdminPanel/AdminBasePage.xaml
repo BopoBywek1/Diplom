@@ -1,0 +1,85 @@
+﻿<Window x:Class="Diplom_F2_.AdminPanel.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_F2_.AdminPanel"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Верх -->
+            <RowDefinition Height="*"/>
+            <!-- Контент -->
+            <RowDefinition Height="Auto"/>
+            <!-- Низ -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <!-- Левая панель -->
+            <ColumnDefinition Width="*"/>
+            <!-- Контент -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Аватар и имя -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="10" >
+            <Image Source="/BaseDate/F2.png"
+               Width="60" Height="60" Margin="0">
+                <Image.Clip>
+                    <EllipseGeometry Center="30,25" RadiusX="30" RadiusY="40"/>
+                </Image.Clip>
+            </Image>
+            <TextBlock x:Name="ViewNickA" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="14" TextWrapping="Wrap" Width="80"/>
+        </StackPanel>
+
+        <!-- Левая панель кнопок -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10,0">
+            <Button x:Name="Licenses" Content="Лицензии" Height="35" Margin="0,15" Click="Button_Click_Licenses"/>
+            <Button x:Name="Device" Content="Устройства" Height="35" Margin="0,15" Click="Button_Click_Device"/>
+            <Button x:Name="Users" Content="Пользователи" Height="35" Click="Button_Click_User" Margin="0,15"/>
+            <Button x:Name="HTask" Content="История поручений" Height="35" Click="Button_Click_HTask" Margin="0,15"/>
+            <Button Content="Выход" Height="42" Click="Button_ClickExitA" VerticalAlignment="Bottom" Margin="0,25,0,0" />
+        </StackPanel>
+
+        <!-- Комбобоксы -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="10">
+            <TextBlock x:Name="TotalAmountTextBlockA" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="0,0,0,10" Width="330" Height="50" Visibility="Visible"/>
+            
+          
+            
+            <StackPanel x:Name="FilterStack" Orientation="Horizontal" Margin="10" VerticalAlignment="Top" Visibility="Collapsed">
+                <StackPanel Margin="5">
+                    <TextBlock Text="Статус" Margin="0,0,0,2"/>
+                    <ComboBox x:Name="StatusComboBox" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Margin="5">
+                    <TextBlock Text="Адрес" Margin="0,0,0,2"/>
+                    <ComboBox x:Name="AddressComboBox" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Margin="5">
+                    <TextBlock Text="Департамент" Margin="0,0,0,2"/>
+                    <ComboBox x:Name="DepartmentComboBox" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Margin="5">
+                    <TextBlock Text="Поиск" Margin="0,0,0,2"/>
+                    <TextBox x:Name="SearchTextBox" Width="200"/>
+                </StackPanel>
+
+                <Button Content="Фильтровать" Click="Button_Click" Margin="5,22,5,0" VerticalAlignment="Top"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Текст и список -->
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal" Width="auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="auto" Width="auto">
+                <StackPanel x:Name="MessagesPanelA"/>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Window>

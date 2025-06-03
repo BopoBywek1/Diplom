@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Departament">
+    <Key>
+      <PropertyRef Name="Id_departament" />
+    </Key>
+    <Property Name="Id_departament" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_departament" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Locate_order" Relationship="Self.FK_Locate_order_Departament" FromRole="Departament" ToRole="Locate_order" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Departament" FromRole="Departament" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="Id_device" />
+    </Key>
+    <Property Name="Id_device" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_device" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Location_id" Type="Int32" Nullable="false" />
+    <Property Name="Status_id" Type="Int32" Nullable="false" />
+    <Property Name="Producer_id" Type="Int32" />
+    <Property Name="User_id" Type="Int32" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_Device_Location" FromRole="Device" ToRole="Location" />
+    <NavigationProperty Name="Producer" Relationship="Self.FK_Device_Producer" FromRole="Device" ToRole="Producer" />
+    <NavigationProperty Name="Status_device" Relationship="Self.FK_Device_Status_device" FromRole="Device" ToRole="Status_device" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Device_User" FromRole="Device" ToRole="User" />
+    <NavigationProperty Name="Licenses" Relationship="Self.FK_Licenses_Device" FromRole="Device" ToRole="Licenses" />
+  </EntityType>
+  <EntityType Name="Licenses">
+    <Key>
+      <PropertyRef Name="Id_licenses" />
+    </Key>
+    <Property Name="Id_licenses" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Soft_id" Type="Int32" Nullable="false" />
+    <Property Name="Licenses_key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Purchase_date" Type="DateTime" Precision="0" />
+    <Property Name="Expiration_date" Type="DateTime" Precision="0" />
+    <Property Name="Device_id" Type="Int32" Nullable="false" />
+    <Property Name="Status_id" Type="Int32" Nullable="false" />
+    <Property Name="Amount_licenses" Type="Int32" />
+    <NavigationProperty Name="Device" Relationship="Self.FK_Licenses_Device" FromRole="Licenses" ToRole="Device" />
+    <NavigationProperty Name="Soft" Relationship="Self.FK_Licenses_Soft" FromRole="Licenses" ToRole="Soft" />
+    <NavigationProperty Name="Status_licenses" Relationship="Self.FK_Licenses_Status_licenses" FromRole="Licenses" ToRole="Status_licenses" />
+  </EntityType>
+  <EntityType Name="Locate_order">
+    <Key>
+      <PropertyRef Name="Id_locate_order" />
+    </Key>
+    <Property Name="Id_locate_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Departament_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departament" Relationship="Self.FK_Locate_order_Departament" FromRole="Locate_order" ToRole="Departament" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Locate_order" FromRole="Locate_order" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id_location" />
+    </Key>
+    <Property Name="Id_location" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_location" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Device" Relationship="Self.FK_Device_Location" FromRole="Location" ToRole="Device" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id_order" />
+    </Key>
+    <Property Name="Id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_id" Type="Int32" />
+    <Property Name="Order_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Number" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Status_id" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cabinet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address_id" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Locate_order" Relationship="Self.FK_Order_Locate_order" FromRole="Order" ToRole="Locate_order" />
+    <NavigationProperty Name="Status_order" Relationship="Self.FK_Order_Status_order" FromRole="Order" ToRole="Status_order" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Producer">
+    <Key>
+      <PropertyRef Name="Id_producer" />
+    </Key>
+    <Property Name="Id_producer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_producer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Device" Relationship="Self.FK_Device_Producer" FromRole="Producer" ToRole="Device" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id_role" />
+    </Key>
+    <Property Name="Id_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Soft">
+    <Key>
+      <PropertyRef Name="Id_soft" />
+    </Key>
+    <Property Name="Id_soft" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_soft" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Licenses" Relationship="Self.FK_Licenses_Soft" FromRole="Soft" ToRole="Licenses" />
+  </EntityType>
+  <EntityType Name="Status_device">
+    <Key>
+      <PropertyRef Name="Id_statusD" />
+    </Key>
+    <Property Name="Id_statusD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_statusD" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Device" Relationship="Self.FK_Device_Status_device" FromRole="Status_device" ToRole="Device" />
+  </EntityType>
+  <EntityType Name="Status_licenses">
+    <Key>
+      <PropertyRef Name="Id_statusL" />
+    </Key>
+    <Property Name="Id_statusL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_statusL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Licenses" Relationship="Self.FK_Licenses_Status_licenses" FromRole="Status_licenses" ToRole="Licenses" />
+  </EntityType>
+  <EntityType Name="Status_order">
+    <Key>
+      <PropertyRef Name="Id_status" />
+    </Key>
+    <Property Name="Id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Status_order" FromRole="Status_order" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id_user" />
+    </Key>
+    <Property Name="Id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nickname" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Role_id" Type="Int32" Nullable="false" />
+    <Property Name="Departament_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departament" Relationship="Self.FK_User_Departament" FromRole="User" ToRole="Departament" />
+    <NavigationProperty Name="Device" Relationship="Self.FK_Device_User" FromRole="User" ToRole="Device" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Locate_order_Departament">
+    <End Role="Departament" Type="Self.Departament" Multiplicity="1" />
+    <End Role="Locate_order" Type="Self.Locate_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departament">
+        <PropertyRef Name="Id_departament" />
+      </Principal>
+      <Dependent Role="Locate_order">
+        <PropertyRef Name="Departament_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Departament">
+    <End Role="Departament" Type="Self.Departament" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departament">
+        <PropertyRef Name="Id_departament" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Departament_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Device_Location">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="Device" Type="Self.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id_location" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="Location_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Device_Producer">
+    <End Role="Producer" Type="Self.Producer" Multiplicity="0..1" />
+    <End Role="Device" Type="Self.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producer">
+        <PropertyRef Name="Id_producer" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="Producer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Device_Status_device">
+    <End Role="Status_device" Type="Self.Status_device" Multiplicity="1" />
+    <End Role="Device" Type="Self.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_device">
+        <PropertyRef Name="Id_statusD" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="Status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Device_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Device" Type="Self.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id_user" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licenses_Device">
+    <End Role="Device" Type="Self.Device" Multiplicity="1" />
+    <End Role="Licenses" Type="Self.Licenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Id_device" />
+      </Principal>
+      <Dependent Role="Licenses">
+        <PropertyRef Name="Device_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licenses_Soft">
+    <End Role="Soft" Type="Self.Soft" Multiplicity="1" />
+    <End Role="Licenses" Type="Self.Licenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Soft">
+        <PropertyRef Name="Id_soft" />
+      </Principal>
+      <Dependent Role="Licenses">
+        <PropertyRef Name="Soft_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licenses_Status_licenses">
+    <End Role="Status_licenses" Type="Self.Status_licenses" Multiplicity="1" />
+    <End Role="Licenses" Type="Self.Licenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_licenses">
+        <PropertyRef Name="Id_statusL" />
+      </Principal>
+      <Dependent Role="Licenses">
+        <PropertyRef Name="Status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Locate_order">
+    <End Role="Locate_order" Type="Self.Locate_order" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locate_order">
+        <PropertyRef Name="Id_locate_order" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Address_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Status_order">
+    <End Role="Status_order" Type="Self.Status_order" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_order">
+        <PropertyRef Name="Id_status" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id_user" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id_role" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DiplomEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departament" EntityType="Self.Departament" />
+    <EntitySet Name="Device" EntityType="Self.Device" />
+    <EntitySet Name="Licenses" EntityType="Self.Licenses" />
+    <EntitySet Name="Locate_order" EntityType="Self.Locate_order" />
+    <EntitySet Name="Location" EntityType="Self.Location" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="Producer" EntityType="Self.Producer" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Soft" EntityType="Self.Soft" />
+    <EntitySet Name="Status_device" EntityType="Self.Status_device" />
+    <EntitySet Name="Status_licenses" EntityType="Self.Status_licenses" />
+    <EntitySet Name="Status_order" EntityType="Self.Status_order" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Locate_order_Departament" Association="Self.FK_Locate_order_Departament">
+      <End Role="Departament" EntitySet="Departament" />
+      <End Role="Locate_order" EntitySet="Locate_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Departament" Association="Self.FK_User_Departament">
+      <End Role="Departament" EntitySet="Departament" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Device_Location" Association="Self.FK_Device_Location">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Device_Producer" Association="Self.FK_Device_Producer">
+      <End Role="Producer" EntitySet="Producer" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Device_Status_device" Association="Self.FK_Device_Status_device">
+      <End Role="Status_device" EntitySet="Status_device" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Device_User" Association="Self.FK_Device_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licenses_Device" Association="Self.FK_Licenses_Device">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Licenses" EntitySet="Licenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licenses_Soft" Association="Self.FK_Licenses_Soft">
+      <End Role="Soft" EntitySet="Soft" />
+      <End Role="Licenses" EntitySet="Licenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licenses_Status_licenses" Association="Self.FK_Licenses_Status_licenses">
+      <End Role="Status_licenses" EntitySet="Status_licenses" />
+      <End Role="Licenses" EntitySet="Licenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Locate_order" Association="Self.FK_Order_Locate_order">
+      <End Role="Locate_order" EntitySet="Locate_order" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Status_order" Association="Self.FK_Order_Status_order">
+      <End Role="Status_order" EntitySet="Status_order" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

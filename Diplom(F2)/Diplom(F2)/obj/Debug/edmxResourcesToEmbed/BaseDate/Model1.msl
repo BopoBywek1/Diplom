@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="DiplomEntities1">
+    <EntitySetMapping Name="Departament">
+      <EntityTypeMapping TypeName="Model.Departament">
+        <MappingFragment StoreEntitySet="Departament">
+          <ScalarProperty Name="Id_departament" ColumnName="Id_departament" />
+          <ScalarProperty Name="Name_departament" ColumnName="Name_departament" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Device">
+      <EntityTypeMapping TypeName="Model.Device">
+        <MappingFragment StoreEntitySet="Device">
+          <ScalarProperty Name="Id_device" ColumnName="Id_device" />
+          <ScalarProperty Name="Name_device" ColumnName="Name_device" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Location_id" ColumnName="Location_id" />
+          <ScalarProperty Name="Status_id" ColumnName="Status_id" />
+          <ScalarProperty Name="Producer_id" ColumnName="Producer_id" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licenses">
+      <EntityTypeMapping TypeName="Model.Licenses">
+        <MappingFragment StoreEntitySet="Licenses">
+          <ScalarProperty Name="Id_licenses" ColumnName="Id_licenses" />
+          <ScalarProperty Name="Soft_id" ColumnName="Soft_id" />
+          <ScalarProperty Name="Licenses_key" ColumnName="Licenses_key" />
+          <ScalarProperty Name="Purchase_date" ColumnName="Purchase_date" />
+          <ScalarProperty Name="Expiration_date" ColumnName="Expiration_date" />
+          <ScalarProperty Name="Device_id" ColumnName="Device_id" />
+          <ScalarProperty Name="Status_id" ColumnName="Status_id" />
+          <ScalarProperty Name="Amount_licenses" ColumnName="Amount_licenses" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locate_order">
+      <EntityTypeMapping TypeName="Model.Locate_order">
+        <MappingFragment StoreEntitySet="Locate_order">
+          <ScalarProperty Name="Id_locate_order" ColumnName="Id_locate_order" />
+          <ScalarProperty Name="AddressO" ColumnName="AddressO" />
+          <ScalarProperty Name="Departament_id" ColumnName="Departament_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Location">
+      <EntityTypeMapping TypeName="Model.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="Id_location" ColumnName="Id_location" />
+          <ScalarProperty Name="Name_location" ColumnName="Name_location" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="Model.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Id_order" ColumnName="Id_order" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="Order_date" ColumnName="Order_date" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Status_id" ColumnName="Status_id" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Cabinet" ColumnName="Cabinet" />
+          <ScalarProperty Name="Address_id" ColumnName="Address_id" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producer">
+      <EntityTypeMapping TypeName="Model.Producer">
+        <MappingFragment StoreEntitySet="Producer">
+          <ScalarProperty Name="Id_producer" ColumnName="Id_producer" />
+          <ScalarProperty Name="Name_producer" ColumnName="Name_producer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id_role" ColumnName="Id_role" />
+          <ScalarProperty Name="role1" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Soft">
+      <EntityTypeMapping TypeName="Model.Soft">
+        <MappingFragment StoreEntitySet="Soft">
+          <ScalarProperty Name="Id_soft" ColumnName="Id_soft" />
+          <ScalarProperty Name="Name_soft" ColumnName="Name_soft" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_device">
+      <EntityTypeMapping TypeName="Model.Status_device">
+        <MappingFragment StoreEntitySet="Status_device">
+          <ScalarProperty Name="Id_statusD" ColumnName="Id_statusD" />
+          <ScalarProperty Name="Name_statusD" ColumnName="Name_statusD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_licenses">
+      <EntityTypeMapping TypeName="Model.Status_licenses">
+        <MappingFragment StoreEntitySet="Status_licenses">
+          <ScalarProperty Name="Id_statusL" ColumnName="Id_statusL" />
+          <ScalarProperty Name="Name_statusL" ColumnName="Name_statusL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_order">
+      <EntityTypeMapping TypeName="Model.Status_order">
+        <MappingFragment StoreEntitySet="Status_order">
+          <ScalarProperty Name="Id_status" ColumnName="Id_status" />
+          <ScalarProperty Name="Name_status" ColumnName="Name_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+          <ScalarProperty Name="Departament_id" ColumnName="Departament_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

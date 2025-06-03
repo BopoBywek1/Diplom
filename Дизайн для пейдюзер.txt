@@ -1,0 +1,35 @@
+ <Grid>
+     <Image Source="/BaseDate/F2.png"
+            Width="50"
+            Height="50"
+            Margin="10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+         <Image.Clip>
+             <EllipseGeometry Center="25,20" RadiusX="30" RadiusY="30"/>
+         </Image.Clip>
+     </Image>
+
+     <TextBlock x:Name="ViewNick" Margin="84,10,596,385"></TextBlock>
+
+     <Button Content="Выход" HorizontalAlignment="Left" Height="42" Margin="10,382,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click"/>
+
+
+     <Button Content="История поручений" HorizontalAlignment="Left" Height="32" Margin="10,196,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click_3"/>
+     <TextBlock x:Name="TotalAmountTextBlock" FontWeight="Bold" FontSize="14" Margin="217,35,275,328" RenderTransformOrigin="0.591,0.616" TextWrapping="Wrap"/>
+
+     <ScrollViewer x:Name="Data" Margin="217,111,51,25"
+           VerticalScrollBarVisibility="Auto"
+           HorizontalScrollBarVisibility="Disabled">
+         <StackPanel x:Name="MessagesPanel">
+             <StackPanel.RenderTransform>
+                 <TranslateTransform x:Name="MessagesPanelTransform"/>
+             </StackPanel.RenderTransform>
+         </StackPanel>
+     </ScrollViewer>
+     <Button x:Name="MyTask" Content="Поручения" HorizontalAlignment="Left" Height="32" Margin="10,111,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click_1"/>
+     <ComboBox x:Name="DepartmentComboBox" Margin="530,57,158,328" SelectionChanged="DepartmentComboBox_SelectionChanged" DisplayMemberPath="Name_departament" SelectedValuePath="departament_id" Visibility="Collapsed" />
+     <ComboBox x:Name="StatusComboBox" Margin="662,57,29,328" SelectionChanged="StatusComboBox_SelectionChanged" DisplayMemberPath="Name_status" SelectedValuePath="Status_id" Visibility="Collapsed" />
+
+
+ </Grid>

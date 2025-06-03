@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="00c9469ae8874290971a200bbdba5193" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Departament" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Device" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Licenses" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Locate_order" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Location" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Producer" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Soft" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status_device" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status_licenses" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status_order" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Locate_order_Departament" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_User_Departament" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Device_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Device_Producer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Device_Status_device" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Device_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Licenses_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Licenses_Soft" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Licenses_Status_licenses" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_Locate_order" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_Status_order" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

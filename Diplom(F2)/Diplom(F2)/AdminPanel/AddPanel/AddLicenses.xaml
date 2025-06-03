@@ -1,0 +1,37 @@
+﻿<Window x:Class="Diplom_F2_.AdminPanel.AddPanel.LicenseDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_F2_.AdminPanel.AddPanel"
+        mc:Ignorable="d"
+        Title="LicenseDetailsWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Ключ лицензии:"/>
+            <TextBox x:Name="KeyTextBox" Margin="0,5"/>
+
+            <TextBlock Text="Дата покупки:"/>
+            <DatePicker x:Name="PurchaseDatePicker" Margin="0,5"/>
+
+            <TextBlock Text="Дата окончания:"/>
+            <DatePicker x:Name="ExpirationDatePicker" Margin="0,5"/>
+
+            <TextBlock Text="Устройство:"/>
+            <ComboBox x:Name="DeviceComboBox" DisplayMemberPath="Inventory_number" SelectedValuePath="Id_device" Margin="0,5"/>
+
+            <TextBlock Text="Статус лицензии:"/>
+            <ComboBox x:Name="StatusComboBox" DisplayMemberPath="Name_statusL" SelectedValuePath="Id_statusL" Margin="0,5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,0,0">
+          <!--  <Button Content="Сохранить" Width="80" Margin="0,0,10,0" Click="SaveButton_Click"/>
+            <Button Content="Отмена" Width="80" Click="CancelButton_Click"/> -->
+        </StackPanel>
+    </Grid>
+</Window>
